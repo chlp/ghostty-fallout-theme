@@ -88,8 +88,10 @@ The theme works without the shader — skip the `custom-shader*` lines for a fla
 
 ## JetBrains IDEs
 
-The same theme for GoLand, PhpStorm, IntelliJ IDEA and other JetBrains IDEs lives in a separate
-repo: [jetbrains-fallout-theme](https://github.com/chlp/jetbrains-fallout-theme).
+The same theme for GoLand, PhpStorm, IntelliJ IDEA and other JetBrains IDEs is available as
+**Wasteland Terminal** on [JetBrains Marketplace](https://plugins.jetbrains.com/plugin/35747-wasteland-terminal)
+(**Settings -> Plugins -> Marketplace** -> search for "Wasteland Terminal"). Source:
+[jetbrains-fallout-theme](https://github.com/chlp/jetbrains-fallout-theme).
 
 ## Tuning the shader
 
