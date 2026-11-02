@@ -9,6 +9,10 @@ showing ghosted text.
 
 ![Fallout theme with CRT shader in cmux](docs/screenshot.png)
 
+Claude Code running in cmux with the green sidebar accent:
+
+![Claude Code in cmux with Fallout theme](docs/screenshot-claude.png)
+
 ## Contents
 
 | File | What it is |
