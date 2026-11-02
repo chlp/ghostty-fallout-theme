@@ -7,6 +7,8 @@ The shader is tuned for readability: the glow only spreads from brighter neighbo
 green tint is partial, so highlighted blocks (e.g. diff backgrounds) stay sharp instead of
 showing ghosted text.
 
+![Fallout theme with CRT shader in cmux](docs/screenshot.png)
+
 ## Contents
 
 | File | What it is |
@@ -65,6 +67,18 @@ cursor-style-blink = true
 ```
 
 Reload the config with `Cmd+Shift+,` or open a new tab.
+
+Optional: make the cmux sidebar match (green selected workspace instead of cmux blue) by adding
+to `~/.config/cmux/cmux.json`:
+
+```json
+{
+  "app": { "accentColor": "#1F8A3F" },
+  "sidebarAppearance": { "darkModeTintColor": "#050B05" }
+}
+```
+
+Then run `cmux reload-config`.
 
 The theme works without the shader — skip the `custom-shader*` lines for a flat look.
 
