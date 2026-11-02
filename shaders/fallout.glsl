@@ -5,16 +5,16 @@
 // ============================================================================
 
 // CRT curvature (higher = flatter)
-#define CURVE 18.0, 14.0
+#define CURVE 16.0, 13.0
 
 const vec3 phosphorColor = vec3(0.25, 1.0, 0.35);
 
 // How much of the original colour is replaced by mono-green phosphor.
 // 1.0 = full mono (diff bg and text merge), 0.0 = original colours.
-#define TINT_AMOUNT 0.35
+#define TINT_AMOUNT 0.45
 
 // Scanlines
-#define SCANLINE_STRENGTH 0.18
+#define SCANLINE_STRENGTH 0.26
 #define SCANLINE_PERIOD 3.0
 
 // Glow: small radius, only adds light where neighbours are BRIGHTER than
@@ -23,21 +23,24 @@ const vec3 phosphorColor = vec3(0.25, 1.0, 0.35);
 #define BLOOM_SPREAD 1.5
 
 // Flicker / noise
-#define FLICKER_STRENGTH 0.015
+#define FLICKER_STRENGTH 0.02
 #define FLICKER_FREQ 20.0
-#define NOISE_STRENGTH 0.025
+#define NOISE_STRENGTH 0.035
 
 // Vignette
-#define VIGNETTE_STRENGTH 0.18
+#define VIGNETTE_STRENGTH 0.22
 #define VIGNETTE_BRIGHTNESS 1.25
 
 // Rolling bar
 #define BAR_SPEED 0.06
-#define BAR_INTENSITY 0.06
+#define BAR_INTENSITY 0.09
 #define BAR_WIDTH 8.0
 
+// Vertical jitter (fraction of screen height); original was 0.0003
+#define JITTER_STRENGTH 0.00012
+
 // Aperture grille
-#define GRILLE_STRENGTH 0.06
+#define GRILLE_STRENGTH 0.1
 
 float noise(vec2 uv) {
     return fract(sin(dot(uv, vec2(12.9898, 78.233) + iTime * 0.01)) * 43758.5453);
@@ -47,7 +50,8 @@ float luma(vec3 c) { return dot(c, vec3(0.299, 0.587, 0.114)); }
 
 void mainImage(out vec4 fragColor, in vec2 fragCoord)
 {
-    vec2 uv = fragCoord.xy / iResolution.xy;
+    float jitter = (noise(vec2(iTime, 0.0)) - 0.5) * JITTER_STRENGTH;
+    vec2 uv = fragCoord.xy / iResolution.xy + vec2(0.0, jitter);
 
     // 1. CRT warp
     vec2 w = (uv - 0.5) * 2.0;

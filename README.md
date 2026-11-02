@@ -1,7 +1,7 @@
 # Fallout theme for Ghostty / cmux
 
 Green phosphor colour theme plus an optional CRT shader (curvature, scanlines, soft glow,
-rolling bar, vignette) inspired by Pip-Boy terminals.
+rolling bar, slight jitter, vignette) inspired by Pip-Boy terminals.
 
 The shader is tuned for readability: the glow only spreads from brighter neighbours and the
 green tint is partial, so highlighted blocks (e.g. diff backgrounds) stay sharp instead of
@@ -74,17 +74,19 @@ Edit the `#define`s at the top of `shaders/fallout.glsl`:
 
 | Parameter | Default | Effect |
 |---|---|---|
-| `TINT_AMOUNT` | 0.35 | 0 = original colours, 1 = full mono green (hurts contrast) |
+| `TINT_AMOUNT` | 0.45 | 0 = original colours, 1 = full mono green (hurts contrast) |
 | `BLOOM_STRENGTH` | 0.22 | Glow; set 0 if text looks soft |
 | `BLOOM_SPREAD` | 1.5 | Glow radius in pixels |
-| `SCANLINE_STRENGTH` | 0.18 | Scanline darkness |
-| `NOISE_STRENGTH` | 0.025 | Film grain |
-| `FLICKER_STRENGTH` | 0.015 | Brightness flicker |
-| `CURVE` | 18.0, 14.0 | Screen curvature; higher = flatter |
-| `VIGNETTE_STRENGTH` | 0.18 | Dark corners |
-| `BAR_INTENSITY` | 0.06 | Rolling bright bar |
+| `SCANLINE_STRENGTH` | 0.26 | Scanline darkness |
+| `NOISE_STRENGTH` | 0.035 | Film grain |
+| `FLICKER_STRENGTH` | 0.02 | Brightness flicker |
+| `CURVE` | 16.0, 13.0 | Screen curvature; higher = flatter |
+| `VIGNETTE_STRENGTH` | 0.22 | Dark corners |
+| `BAR_INTENSITY` | 0.09 | Rolling bright bar |
+| `GRILLE_STRENGTH` | 0.1 | Vertical aperture-grille lines |
+| `JITTER_STRENGTH` | 0.00012 | Vertical picture jitter; 0 = stable |
 
-For a stronger retro look try `TINT_AMOUNT 0.5` and `SCANLINE_STRENGTH 0.25`.
+For a stronger retro look try `TINT_AMOUNT 0.6` and `SCANLINE_STRENGTH 0.35`.
 
 Turn off `custom-shader-animation` to stop the flicker / rolling bar and save battery.
 
