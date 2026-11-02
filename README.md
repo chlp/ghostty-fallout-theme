@@ -86,6 +86,11 @@ Then run `cmux reload-config`.
 
 The theme works without the shader — skip the `custom-shader*` lines for a flat look.
 
+## JetBrains IDEs
+
+The same theme for GoLand, PhpStorm, IntelliJ IDEA and other JetBrains IDEs lives in a separate
+repo: [jetbrains-fallout-theme](https://github.com/chlp/jetbrains-fallout-theme).
+
 ## Tuning the shader
 
 Edit the `#define`s at the top of `shaders/fallout.glsl`:
