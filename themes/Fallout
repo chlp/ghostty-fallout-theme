@@ -10,3 +10,13 @@ palette = 4=#3e9b67
 palette = 5=#64b879
 palette = 6=#60e899
 palette = 7=#b5ffc5
+palette = 8=#2c6b3f
+palette = 9=#3fd068
+palette = 10=#5cff8f
+palette = 11=#c4ee70
+palette = 12=#56bd84
+palette = 13=#84d69a
+palette = 14=#8cf5b8
+palette = 15=#e0ffe6
+selection-background = #1a4d27
+selection-foreground = #e0ffe6

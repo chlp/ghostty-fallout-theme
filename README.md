@@ -17,11 +17,41 @@ Claude Code running in cmux with the green sidebar accent:
 
 | File | What it is |
 |---|---|
-| `themes/Fallout` | Colour theme (background, foreground, cursor, palette 0–7) |
+| `themes/Fallout` | Colour theme (background, foreground, cursor, selection, palette 0–15) |
 | `shaders/fallout.glsl` | CRT custom shader |
 | `install.sh` | Copies both into `~/.config/ghostty` |
 
 ## Install
+
+### Built-in theme + shader only
+
+The colours are also submitted to
+[iTerm2-Color-Schemes](https://github.com/mbadolato/iTerm2-Color-Schemes) as
+**Wasteland Terminal**, the collection Ghostty and cmux ship their built-in themes from.
+Once it lands in a release (check with `ghostty +list-themes | grep Wasteland`), you only
+need the theme name and the shader file:
+
+```bash
+mkdir -p ~/.config/ghostty/shaders
+curl -fsSL -o ~/.config/ghostty/shaders/fallout.glsl \
+  https://raw.githubusercontent.com/chlp/ghostty-fallout-theme/main/shaders/fallout.glsl
+```
+
+Ghostty, `~/.config/ghostty/config`:
+
+```ini
+theme = Wasteland Terminal
+custom-shader = ~/.config/ghostty/shaders/fallout.glsl
+custom-shader-animation = true
+```
+
+cmux: run `cmux themes set --dark "Wasteland Terminal"` and add the two `custom-shader*`
+lines to the cmux Ghostty config (see [cmux](#cmux) below for its path).
+
+Reload the config with `Cmd+Shift+,` or open a new tab. To tune the shader, edit the
+downloaded `fallout.glsl` (see [Tuning the shader](#tuning-the-shader)).
+
+### From this repo
 
 ```bash
 git clone https://github.com/chlp/ghostty-fallout-theme.git
@@ -37,7 +67,7 @@ cp themes/Fallout ~/.config/ghostty/themes/
 cp shaders/fallout.glsl ~/.config/ghostty/shaders/
 ```
 
-### Ghostty
+#### Ghostty
 
 Add to `~/.config/ghostty/config`:
 
@@ -49,7 +79,7 @@ cursor-style = block
 cursor-style-blink = true
 ```
 
-### cmux
+#### cmux
 
 Set the theme (cmux reads themes from `~/.config/ghostty/themes`):
 
@@ -122,3 +152,7 @@ Remove the `theme` / `custom-shader*` lines from the config, then:
 ```bash
 rm ~/.config/ghostty/themes/Fallout ~/.config/ghostty/shaders/fallout.glsl
 ```
+
+## License
+
+MIT, see [LICENSE](LICENSE).
